@@ -2,6 +2,7 @@ package com.ppt.Selenium;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.util.Vector;
 import java.util.concurrent.CountDownLatch;
 
 import org.openqa.selenium.By;
@@ -44,11 +45,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class WorkerId2Blog implements Runnable{
 
         Task task;
+        Vector<Task> taskVector;
         CountDownLatch latch;
         BufferedWriter log;
         
-        WorkerId2Blog(Task task, CountDownLatch latch) throws IOException {
+        WorkerId2Blog(Task task, Vector<Task> taskVector, CountDownLatch latch) throws IOException {
             this.task = task;
+            this.taskVector = taskVector;
             this.latch = latch;
         }
         
@@ -80,7 +83,7 @@ public class WorkerId2Blog implements Runnable{
 			}
 			
 			
-			task.next.addElement(task);
+			taskVector.addElement(task);
 			latch.countDown();
 			
 			System.out.println("over");

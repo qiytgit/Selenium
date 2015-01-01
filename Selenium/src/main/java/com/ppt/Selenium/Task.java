@@ -9,11 +9,9 @@ public class Task {
 
 	Vector<Task> next;
 	
-	Task(String id, Vector<Task> next) {
+	Task(String id) {
 		this.id = id;
 		this.blogVector = new Vector<Blog>();
-		
-		this.next = next;
     }
 	
 	String getId(){

@@ -11,9 +11,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class WorkerBlog2Cell implements Runnable{
 
     Task task;
+    Vector<Task> taskVector;
     CountDownLatch latch;
-    WorkerBlog2Cell(Task task, CountDownLatch latch) {
+    WorkerBlog2Cell(Task task, Vector<Task> taskVector, CountDownLatch latch) {
         this.task = task;
+        this.taskVector = taskVector;
         this.latch = latch;
     }
     
@@ -48,6 +50,8 @@ public class WorkerBlog2Cell implements Runnable{
         		}
     		}
     	}
+    	
+    	taskVector.addElement(task);
     	latch.countDown();
     }
 }
