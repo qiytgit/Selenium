@@ -44,7 +44,7 @@ public class App {
     	
     	
     	Task task = new Task("000050", blog2CellTaskVector);
-    	Blog blog = new Blog("http://guba.eastmoney.com/news,000050,137842639_1.html");
+    	Blog blog = new Blog("http://guba.eastmoney.com/news,000050,133430166.html");
     	task.blogVector.addElement(blog);
     	blog2CellTaskVector.addElement(task);
     	
